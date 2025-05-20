@@ -12,7 +12,7 @@ import 'dotenv/config'
 
 const app = express()
 app.use(cors({
-    origin: 'http://localhost:5173' // solo permite este origen
+    origin: ['http://localhost:5173','https://project-mern-backend-ucl7.onrender.com']
 }))
 
 
