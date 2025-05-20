@@ -12,7 +12,10 @@ import 'dotenv/config'
 
 const app = express()
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://todo-mern-two-khaki.vercel.app'],
+    origin: [
+        'http://localhost:5173',
+        'https://todo-mern-two-khaki.vercel.app'  // <-- el correcto
+    ],
     credentials: true
 }))
 
@@ -25,16 +28,16 @@ app.use(express.json())
 
 
 /* Rutas  */
-app.use('/api/tasks',tasksRoutes)
-app.use('/api/users',routerUsers)
-app.use('/api/productos',productsRoutes)
+app.use('/api/tasks', tasksRoutes)
+app.use('/api/users', routerUsers)
+app.use('/api/productos', productsRoutes)
 
 
 
 
 
 
-app.listen(process.env.PORT,()=>{
+app.listen(process.env.PORT, () => {
     console.log(`\n\nApliacion Corriendo En el Puerto : ${process.env.PORT}\nURL : http://localhost:${process.env.PORT}/\n\n`)
 })
 
