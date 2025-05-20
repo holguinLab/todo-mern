@@ -1,5 +1,5 @@
 import { CategoriasProductos } from "../models/model.categorias.productos.mjs";
-import { Productos } from "../models/model.Productos.mjs";
+import { Productos } from "../models/model.productos.mjs";
 
 
 const listarProductos = async (req,res) => {
