@@ -5,12 +5,13 @@ import { useState ,useEffect} from "react"
 
 
 export function Store (){
+    const API = import.meta.env.VITE_URL
     const [productos,setProductos] =useState([])
 
     const listProducts = async()=>{
         try{
             /* Guarda La Respuesta  */
-            const response = await axios.get("http://localhost:9999/api/productos")
+            const response = await axios.get(`${API}/api/productos`)
             console.log(response.data)
             setProductos(response.data.productos)
         }catch(error){

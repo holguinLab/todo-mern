@@ -1,8 +1,9 @@
 import axios from "axios"
 import { useState } from "react"
 
-export function LoginForm() {
 
+export function LoginForm() {
+    const API = import.meta.env.VITE_URL
     const [form, setForm] = useState({
         email: '',
         password: '',
@@ -19,7 +20,7 @@ export function LoginForm() {
     const handleSubmit = async (evento) => {
         evento.preventDefault()
         try {
-            await axios.post("http://localhost:9999/api/users/aut", form);
+            await axios.post(`${API}/api/users/aut`, form);
             setForm({
                 email: '',
                 password: ''
