@@ -75,9 +75,9 @@ function Navbar() {
                 </div>
 
                 <div className="navbar-end gap-3">
-                    <a href="#!" className="link link-hover">
+                    <Link to="/login" className="btn bg-neutral text-neutral-content">
                         Login
-                    </a>
+                    </Link>
                     <Link to="/register" className="btn bg-neutral text-neutral-content">
                         Sing Up
                     </Link>

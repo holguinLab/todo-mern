@@ -5,5 +5,6 @@ const routerUsers = Router()
 
 routerUsers.get('/',controllerUsers.listUsers)
 routerUsers.post('/',controllerUsers.addUser)
+routerUsers.post('/aut',controllerUsers.autenticarUser)
 
 export default routerUsers
