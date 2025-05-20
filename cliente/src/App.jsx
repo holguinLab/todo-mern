@@ -1,14 +1,18 @@
 import './app.css'
-import RegisterForm from './components/registerForm'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer';
-import Home from './components/Home';
-import LoginForm from './components/LoginForm';
 
+/* Importacion de Componentes de React */
+import { Footer } from './components/Footer';
+import { Home } from './components/Home';
+import { LoginForm } from './components/LoginForm';
+import { RegisterForm } from './components/RegisterForm';
+import { Store } from './components/Store';
+import { Navbar } from './components/Navbar';
+
+/* Libreria para el manejo de las ruta y redirecciones con react */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
-function App() {
+export function App() {
     return(
             <BrowserRouter>
                 <div className="flex flex-col min-h-screen">
@@ -20,6 +24,7 @@ function App() {
                             <Route path="/" element={<Home/>} />
                             <Route path="/register" element={<RegisterForm />} />
                             <Route path="/login" element={<LoginForm />} />
+                            <Route path="/store" element={<Store />} />
                         </Routes>
                     </main>
 
@@ -28,7 +33,5 @@ function App() {
         </BrowserRouter>
     )
 }
-
-export default App
 
 

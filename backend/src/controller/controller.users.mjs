@@ -6,13 +6,12 @@ const listUsers = async(req,res) =>{
     res.json(users)
 }
 
+
 const encriptarPassword = async(password) =>{
     const salt = 10
     const hash = await encrypt.hash(password,salt)
     return hash;
 }
-
-
 
 const addUser = async (req,res) =>{
     const inputPassword = req.body.password
@@ -34,17 +33,20 @@ const addUser = async (req,res) =>{
 
 
 const autenticarUser = async(req,res) =>{
+    // 'await' pausa el código hasta que una promesa termine y devuelve su resultado.
+    // Solo se usa dentro de funciones 'async'.
+
     const inputEmail = req.body.email
     const inputPassword = req.body.password
     try{
         const user = await Users.findOne({email : inputEmail})
         
-        if (!user){
+        if (!user){ // Si user es false
             return res.status(401).json({ mensaje: 'Usuario no encontrado' });
         }
         const resultado = await encrypt.compare(inputPassword,user.password)
 
-        if (resultado) {
+        if (resultado) { 
             return res.status(200).json({ mensaje: 'Contraseña correcta' });
         } else {
             return res.status(401).json({ mensaje: 'Contraseña incorrecta' });

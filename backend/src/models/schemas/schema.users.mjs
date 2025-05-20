@@ -8,7 +8,7 @@ const schemaUsers = new mongoose.Schema({
         type:Number,
         required : true,
         unique :true,
-        default: () => nanoid() // genera código único de 8 caracteres
+        default: () => nanoid() // 
     },
     email :{
         type : String,

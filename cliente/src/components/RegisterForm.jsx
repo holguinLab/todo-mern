@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 
-function RegisterForm() {
+export function RegisterForm() {
 
     const [form, setForm] = useState({
         email: '',
@@ -70,4 +70,3 @@ function RegisterForm() {
     )
 }
 
-export default RegisterForm
