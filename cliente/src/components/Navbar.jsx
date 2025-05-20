@@ -78,10 +78,10 @@ export function Navbar() {
             </div>
 
             <div className="navbar-end gap-3">
-                <Link to="/login" className="btn bg-neutral text-neutral-content">
+                <Link to="/login" className="btn btn-link text-black ">
                     Login
                 </Link>
-                <Link to="/register" className="btn bg-neutral text-neutral-content">
+                <Link to="/register" className="btn bg-accent ">
                     Sing Up
                 </Link>
             </div>

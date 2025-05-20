@@ -17,7 +17,7 @@ app.use(cors({
         'https://todo-mern-two-khaki.vercel.app'  // <-- el correcto
     ],
     credentials: true
-}))
+})) 
 
 
 
