@@ -6,7 +6,9 @@ import { Home } from './components/Home';
 import { LoginForm } from './components/LoginForm';
 import { RegisterForm } from './components/RegisterForm';
 import { Store } from './components/Store';
+import { AdminPanelHome } from './components/admin/AdminPanelHome';
 import { Navbar } from './components/Navbar';
+
 
 /* Libreria para el manejo de las ruta y redirecciones con react */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -25,6 +27,7 @@ export function App() {
                             <Route path="/register" element={<RegisterForm />} />
                             <Route path="/login" element={<LoginForm />} />
                             <Route path="/store" element={<Store />} />
+                            <Route path="/admin" element={<AdminPanelHome />} />
                         </Routes>
                     </main>
 

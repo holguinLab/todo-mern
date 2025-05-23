@@ -44,6 +44,46 @@ const addProducto = async (req,res) =>{
     }
 }
 
+
+
+const eliminarProducto = async (req,res) => {
+    try{
+        const {_id} = req.params
+        await Productos.findByIdAndDelete(_id)
+        res.status(200).json({mensaje : 'Producto Eliminado Correctamente'})
+    }catch(error){
+        res.status(404).json({mensaje : 'Error Al Eliminar El Producto',error})
+    }
+}
+
+
+const buscarProductoID = async(req,res)=>{
+    try{
+        const {_id} = req.params
+        const producto = await Productos.findById(_id)
+        console.log('Producto Encontrado Correctamente ' , producto)
+        res.status(201).json({mensaje : 'Producto Encontrado Correctamente' , producto : producto})
+    }catch(error){
+        res.status(404).json({mensaje : 'Error Al Buscar Producto',error})
+        console.log(error)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const addCategoriaProducto = async (req,res) => {
     try{
         const categoria = new CategoriasProductos({
@@ -58,4 +98,36 @@ const addCategoriaProducto = async (req,res) => {
     }
 }
 
-export default {addCategoriaProducto,listarProductos,addProducto}
+
+
+const actualizarProducto = async(req,res)=>{
+    try{
+        const {_id} = req.params
+        const datosBody = req.body
+
+        const producto = await Productos.findByIdAndUpdate(
+            _id,
+            datosBody,
+            {new:true} // ← devuelve el documento ya actualizado
+        )
+        res.json({ mensaje: 'Producto actualizado', producto: producto });
+        console.log(`Producto Actializado ${producto}`)
+    }catch(error){
+        res.status(404).json({mensaje :'Error Al Actualizar El Producto',error})
+        console.log(error)
+    }
+}
+
+
+const listarCategoriasProductos = async (req,res) =>{
+    try{
+        const categorias = await CategoriasProductos.find()
+        console.log('Categorias Listadas')
+        res.status(200).json({mensaje:'Categorias De Productos' , categorias:categorias})
+    }catch(error){
+        res.status(404).json({mensaje :'Error Al Obtener Las Categorias',error})
+        console.log(error)
+    }
+}
+
+export default {addCategoriaProducto,listarProductos,addProducto,eliminarProducto,listarCategoriasProductos,buscarProductoID,actualizarProducto}

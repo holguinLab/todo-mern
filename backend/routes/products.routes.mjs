@@ -13,8 +13,34 @@ productsRoutes.get('/',controllerProductos.listarProductos)
 productsRoutes.post('/',controllerProductos.addProducto)
 
 
+/* Eliminar Producto */
+productsRoutes.delete('/:_id',controllerProductos.eliminarProducto)
+
+/* Buscar Producto Por ID */
+productsRoutes.get('/search/:_id',controllerProductos.buscarProductoID)
+
+
+
+/* Actualizar Producto ID */
+productsRoutes.put('/:_id',controllerProductos.actualizarProducto)
+
+
+
 /* Crear Categoria Para Los Pruductos  */
 productsRoutes.post('/newCategoria',controllerProductos.addCategoriaProducto)
+
+
+
+
+/* Listar Todas Las Categorias de Productos */
+productsRoutes.get('/categorias',controllerProductos.listarCategoriasProductos)
+
+
+
+
+
+
+
 
 
 
