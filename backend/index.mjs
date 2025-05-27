@@ -4,6 +4,7 @@ import express from 'express'
 import tasksRoutes from './routes/tasks.routes.mjs'
 import routerUsers from './routes/users.routes.mjs'
 import productsRoutes from './routes/products.routes.mjs'
+import routerEmail from './routes/email.routes.mjs'
 
 
 import './src/config/conexion.mjs'
@@ -31,7 +32,7 @@ app.use(express.json())
 app.use('/api/tasks', tasksRoutes)
 app.use('/api/users', routerUsers)
 app.use('/api/productos', productsRoutes)
-
+app.use('/api/sendEmail',routerEmail)
 
 
 
